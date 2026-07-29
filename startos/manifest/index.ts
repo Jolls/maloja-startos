@@ -5,7 +5,7 @@ export const manifest = setupManifest({
   id: 'maloja',
   title: 'Maloja',
   license: 'GPL-3.0',
-  packageRepo: 'https://github.com/REPLACE_ME/maloja-startos', // TODO: set once you've created the packaging repo
+  packageRepo: 'https://github.com/Jolls/maloja-startos',
   upstreamRepo: 'https://github.com/krateng/maloja',
   marketingUrl: 'https://maloja.krateng.ch',
   donationUrl: null,

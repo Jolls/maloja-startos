@@ -2,7 +2,7 @@
 
 ## Identity & metadata
 
-- [ ] `startos/manifest/index.ts`: set `packageRepo` once the packaging repo exists (currently a `REPLACE_ME` placeholder).
+- [x] `startos/manifest/index.ts`: `packageRepo` set to github.com/Jolls/maloja-startos.
 
 ## Build, test, ship
 
