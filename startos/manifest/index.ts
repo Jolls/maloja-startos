@@ -12,10 +12,10 @@ export const manifest = setupManifest({
   description: { short, long },
   volumes: ['main'],
   images: {
-    // Confirmed on Docker Hub 2026-07-25: krateng/maloja:3.2.4 ships both
+    // Confirmed on Docker Hub 2026-08-13: krateng/maloja:3.2.6 ships both
     // amd64 and arm64. See UPDATING.md for how to re-check this on bump.
     maloja: {
-      source: { dockerTag: 'krateng/maloja:3.2.4' },
+      source: { dockerTag: 'krateng/maloja:3.2.6' },
       arch: ['x86_64', 'aarch64'],
     },
   },
