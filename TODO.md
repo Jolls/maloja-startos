@@ -12,8 +12,23 @@
       dashboard on its bound port; the generated password authenticates via `/auth/authenticate` and reaches
       `/admin_overview`; password survives a full `package restart` (confirms `MALOJA_FORCE_PASSWORD`
       re-application on every start, not just first run).
-- [ ] Backup / restore sanity check (not yet run — requires a configured backup target on the test box).
-- [ ] Review the README and instructions one more time against actual behavior.
+- [x] `tsc --noEmit`, `npm run build`, and `start-cli s9pk pack` all re-verified clean on 2026-08-21.
+- [x] README and instructions reviewed against `main.ts`/`interfaces.ts`/`backups.ts`/`utils.ts` on 2026-08-21 — accurate, no drift.
+- [x] **Uninstall / reinstall teardown check (2026-08-21).** The real `maloja` install on 192.168.121.132
+      carries production data, so this was run against a disposable `maloja-test` sideload instead: manifest
+      `id` temporarily changed to `maloja-test`, packed, `start-cli package install --sideload`ed alongside
+      the production `maloja`, driven through **Set Admin Password**, confirmed the daemon health check
+      passed and the web UI served — then `start-cli package uninstall maloja-test` removed it cleanly
+      (verified gone from `package list`), reinstalled cleanly from the same sideload, then uninstalled again
+      for final cleanup. Production `maloja` was never touched. Manifest `id` reverted to `maloja` afterward;
+      `startos/manifest/index.ts` diff is clean.
+- [x] **Backup / restore sanity check (2026-08-21).** Run by the user via the StartOS GUI against the disposable
+      `maloja-test` sideload (installed alongside production `maloja`, which was never touched) and the
+      existing `cifs-1` backup target. Restore went `restoring` → Validating Headers → Unpacking → Restoring →
+      `installed` with no errors. Post-restore startup logs confirmed a clean round-trip: no migration errors,
+      `Password has been set.` (confirms the restored `store.json` admin password was reapplied via
+      `MALOJA_FORCE_PASSWORD`), the daemon health check passed, and Maloja's own DB cleanup ran without
+      complaint. `maloja-test` uninstalled afterward for final cleanup.
 - [x] **Import Scrobbles verified end-to-end.** `Value.file` (real file upload) does not work on this
       OS build — confirmed via both drag-and-drop and the native file picker in the actual StartOS web UI,
       both submitting an empty `{}` for the field (RPC validation error on `file.path`/`file.commitment`).
