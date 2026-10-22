@@ -73,6 +73,7 @@ export const importScrobbles = sdk.Action.withInput(
         copyable: true,
         masked: false,
         qr: false,
+        filename: null,
       },
     }
   },
