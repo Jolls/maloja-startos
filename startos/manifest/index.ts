@@ -13,9 +13,7 @@ export const manifest = setupManifest({
   volumes: ['main'],
   images: {
     maloja: {
-      source: {
-        dockerBuild: { buildArgs: { IMAGE: 'krateng/maloja:3.2.9' } },
-      },
+      source: { dockerTag: 'krateng/maloja:3.2.10' },
       arch: ['x86_64', 'aarch64'],
     },
   },

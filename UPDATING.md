@@ -1,6 +1,6 @@
 # Updating the upstream version
 
-Upstream is the `krateng/maloja` Docker image, pinned by tag in `startos/manifest/index.ts` (`images.maloja.source.dockerBuild.buildArgs.IMAGE`) and layered by the root `Dockerfile`.
+Upstream is the `krateng/maloja` Docker image, pinned by tag in `startos/manifest/index.ts` (`images.maloja.source.dockerTag`).
 
 ## Determining the upstream version
 
@@ -11,4 +11,4 @@ Upstream is the `krateng/maloja` Docker image, pinned by tag in `startos/manifes
 
 ## Applying the bump
 
-1. Edit `images.maloja.source.dockerBuild.buildArgs.IMAGE` in `startos/manifest/index.ts` to the new `krateng/maloja:<tag>`.
+1. Edit `images.maloja.source.dockerTag` in `startos/manifest/index.ts` to the new `krateng/maloja:<tag>`.
